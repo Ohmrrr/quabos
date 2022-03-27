@@ -1,0 +1,10 @@
+# Modules and Dist
+node_modules/
+dist/
+
+# Environment Variables
+.env
+src/Data/config.json
+
+# Editor
+.vscode
