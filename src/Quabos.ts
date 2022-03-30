@@ -42,9 +42,11 @@ export class Quabos extends Client {
       if (!message.content.startsWith(this.prefix)) return;
 
       const args = message.content.slice(this.prefix.length).split(/ +/);
-      const target = args.shift()?.toLowerCase();
+      const target = args[0].toLowerCase();
 
-      const command = this.commands.find((cmd) => cmd.name === target);
+      const command =
+        this.commands.get(target) ??
+        this.commands.find((cmd) => cmd.aliases.includes(target));
       if (!command) return;
 
       const clientPermission = message.member?.permissions.has(
@@ -71,7 +73,9 @@ export class Quabos extends Client {
     fs.readdirSync(commandDir)
       .filter((file) => file.endsWith('.js'))
       .forEach(async (file) => {
-        const { default: defaultExport } = await import(`${commandDir}/${file}`);
+        const { default: defaultExport } = await import(
+          `${commandDir}/${file}`
+        );
         const cmd = defaultExport as Command;
         this.commands.set(cmd.name, cmd);
       });
