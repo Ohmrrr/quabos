@@ -4,6 +4,14 @@
   "description": "A discord bot that uses markov chaining to create new sentences.",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.6.0"
+  },
+  "engineStrict": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ohmrrr/quabos"
+  },
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
