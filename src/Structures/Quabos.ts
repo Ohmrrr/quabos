@@ -32,6 +32,8 @@ export class Quabos extends Client {
 
     this.once('ready', () => {
       console.log(`${this.name} is ready. Logged in as ${this.user?.tag}`);
+      this.user?.setPresence({ status: this.config.presence.status });
+      this.user?.setActivity({ name: this.config.presence.activity, type: this.config.presence.type });
     });
 
     this.on('messageCreate', (message: Message) => {

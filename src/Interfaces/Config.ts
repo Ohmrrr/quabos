@@ -1,5 +1,6 @@
-type Type = 'PLAYING' | 'LISTENING' | 'WATCHING' | 'STREAMING' | 'COMPETING';
-type StateSize = 1 | 2 | 3;
+export type Status = 'online' | 'idle' | 'dnd' | 'invisible';
+export type Type = 'PLAYING' | 'LISTENING' | 'WATCHING' | 'STREAMING' | 'COMPETING';
+export type StateSize = 1 | 2 | 3;
 
 export interface Config {
   name: string;
@@ -11,7 +12,7 @@ export interface Config {
 }
 
 interface Presence {
-  status: string;
+  status: Status;
   activity: string;
   type: Type;
 }
