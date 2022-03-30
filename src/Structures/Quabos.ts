@@ -5,8 +5,8 @@ import {
   MessageEmbed,
   MessageEmbedOptions,
 } from 'discord.js';
-import { Config } from './Interfaces/Config';
-import { Command } from './Interfaces/Command';
+import { Config } from '../Interfaces/Config';
+import { Command } from '../Interfaces/Command';
 import path from 'path';
 import fs from 'fs';
 
@@ -68,7 +68,7 @@ export class Quabos extends Client {
   public async init() {
     await this.login(this.config.token);
 
-    const commandDir = path.join(__dirname, 'Commands');
+    const commandDir = path.join(__dirname, '..', 'Commands');
 
     fs.readdirSync(commandDir)
       .filter((file) => file.endsWith('.js'))
