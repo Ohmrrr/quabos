@@ -12,6 +12,8 @@
     "importHelpers": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "outDir": "./dist"
   }
 }

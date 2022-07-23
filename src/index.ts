@@ -1,7 +1,5 @@
-import { Configure } from './Utils/Configure';
-import { Quabos } from './Structures/Quabos';
+import Quabos from "./structures/Quabos";
 
-const config = Configure();
-const client = new Quabos(config);
+const client = new Quabos();
 
 client.init();
